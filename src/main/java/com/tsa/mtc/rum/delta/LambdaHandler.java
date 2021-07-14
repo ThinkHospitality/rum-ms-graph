@@ -202,14 +202,12 @@ public class LambdaHandler implements RequestHandler<Object, String> {
         }
 
         try {
-        	String deltaToken2 = null ;
-        	String deltaToken1 = null;
         	
         	// Writing delta token for next call
             s3Client.putObject(bucket, BUCKET_PREFIX + deltaToken_key, deltaToken);
             s3Client.putObject(bucket, BUCKET_PREFIX + deltaFileName, deltaToken);
             //crosschecking if file is written in S3 properly...
-        	S3Object s1Object  = s3Client.getObject(new GetObjectRequest(bucket, BUCKET_PREFIX + deltaToken_key)); //deltafile.txt
+        /*	S3Object s1Object  = s3Client.getObject(new GetObjectRequest(bucket, BUCKET_PREFIX + deltaToken_key)); //deltafile.txt
         	InputStream objectData = s1Object.getObjectContent();
             BufferedReader reader = new BufferedReader(new InputStreamReader(objectData));
             if (reader.ready()) {
@@ -227,7 +225,7 @@ public class LambdaHandler implements RequestHandler<Object, String> {
         		 System.out.println("Delta file with file name delta.txt is null....");
         	 }else {
         		 System.out.println("Delta file with file name delta_Timestamp.txt is null....");
-        	 }
+        	 }*/
             
             // Copying csv file from lambda tmp folder to S3 bucket
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, BUCKET_PREFIX + csvFileName, new File(csvFilePath));

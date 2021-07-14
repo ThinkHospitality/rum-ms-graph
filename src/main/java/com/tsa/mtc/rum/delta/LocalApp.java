@@ -139,17 +139,6 @@ public class LocalApp {
                 csvWriter.write(appointmentList);
                 
             }
-
-            System.out.println("Delta Link for next round = " + deltaLink);
-            String d= Utilities.getToken(deltaLink, "$deltatoken=");
-            System.out.println("Delta Token for next round = " +d );
-            
-            FileWriter deltaWriter =
-                    new FileWriter(deltaFileName);
-            BufferedWriter bufferedWriter =
-                    new BufferedWriter(deltaWriter);
-
-                bufferedWriter.write(d);
            
 
         } catch (CsvRequiredFieldEmptyException | CsvDataTypeMismatchException | IOException e) {
