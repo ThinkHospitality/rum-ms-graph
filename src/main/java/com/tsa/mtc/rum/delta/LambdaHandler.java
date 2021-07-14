@@ -206,7 +206,7 @@ public class LambdaHandler implements RequestHandler<Object, String> {
         	// Writing delta token for next call
             s3Client.putObject(bucket, BUCKET_PREFIX + deltaToken_key, deltaToken);
             s3Client.putObject(bucket, BUCKET_PREFIX + deltaFileName, deltaToken);
-            //crosschecking if file is written in S3 properly...
+            //crosschecking if file is written in S3 properly for timimg issues...
         /*	S3Object s1Object  = s3Client.getObject(new GetObjectRequest(bucket, BUCKET_PREFIX + deltaToken_key)); //deltafile.txt
         	InputStream objectData = s1Object.getObjectContent();
             BufferedReader reader = new BufferedReader(new InputStreamReader(objectData));
